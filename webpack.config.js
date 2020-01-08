@@ -1,11 +1,11 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   mode: 'development',
   entry: './src/index.jsx',
-  devtool: 'inline-source-map',
   devServer: {
     contentBase: './dist',
     hot: true,
@@ -17,6 +17,10 @@ module.exports = {
       template: path.resolve(__dirname, 'index.html'),
     }),
   ],
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
+  },
   module: {
     rules: [
       {
