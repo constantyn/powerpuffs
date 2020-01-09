@@ -15,10 +15,18 @@ export default () => (
       </Navbar>
 
       <Switch>
-        <Route exact path="/" component={Show} />
+        <Route exact path="/" render={() => <Show showId="6771" />} />
         <Route
-          path="/:id"
-          render={({ match }) => <Episode id={match.params.id} />}
+          exact
+          path="/:showId"
+          render={({ match }) => <Show showId={match.params.showId} />}
+        />
+        <Route
+          path="/:showId/episode/:episodeId"
+          render={({ match }) => {
+            const { showId, episodeId } = match.params || {};
+            return <Episode showId={showId} episodeId={episodeId} />;
+          }}
         />
       </Switch>
     </div>
