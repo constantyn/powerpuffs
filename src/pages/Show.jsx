@@ -4,7 +4,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import { Link } from 'react-router-dom';
 import Image from 'react-bootstrap/Image';
 
-export default ({ showId }) => {
+export default ({ showId = '6771' }) => {
   const [show, setShowData] = useState({});
   const [episodes, setEpisodes] = useState([]);
 

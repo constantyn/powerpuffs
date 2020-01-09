@@ -10,15 +10,14 @@ export default () => (
     <div className="container">
       <Navbar bg="dark" variant="dark" className="mb-3">
         <Link className="navbar-brand" to="/">
-          RTL - The Powerpuff Girls
+          RTL trial
         </Link>
       </Navbar>
 
       <Switch>
-        <Route exact path="/" render={() => <Show showId="6771" />} />
         <Route
           exact
-          path="/:showId"
+          path="/:showId?"
           render={({ match }) => <Show showId={match.params.showId} />}
         />
         <Route
